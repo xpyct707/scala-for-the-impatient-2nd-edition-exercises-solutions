@@ -1,0 +1,9 @@
+scala> "kiz4yosr4"
+res0: String = kiz4yosr4
+
+scala> res0.head
+res1: Char = k
+
+scala> res0.last
+res2: Char = 4
+

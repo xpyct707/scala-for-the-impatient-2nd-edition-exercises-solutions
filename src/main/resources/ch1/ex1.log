@@ -1,0 +1,20 @@
+scala> 3.
+!=   <    >>>         doubleValue   isNaN           isValidShort   shortValue       toDouble        toShort
+%    <<   ^           floatValue    isNegInfinity   isWhole        signum           toFloat         unary_+
+&    <=   abs         floor         isPosInfinity   longValue      to               toHexString     unary_-
+*    ==   byteValue   getClass      isValidByte     max            toBinaryString   toInt           unary_~
++    >    ceil        intValue      isValidChar     min            toByte           toLong          underlying
+-    >=   compare     isInfinite    isValidInt      round          toChar           toOctalString   until
+/    >>   compareTo   isInfinity    isValidLong     self           toDegrees        toRadians       |
+
+scala> 3.
+!=   <     abs            equals       isInstanceOf    isWhole     shortValue       toFloat         unary_-
+##   <<    asInstanceOf   floatValue   isNaN           longValue   signum           toHexString     unary_~
+%    <=    byteValue      floor        isNegInfinity   max         synchronized     toInt           underlying
+&    ==    ceil           formatted    isPosInfinity   min         to               toLong          until
+*    >     compare        getClass     isValidByte     ne          toBinaryString   toOctalString   wait
++    >=    compareTo      hashCode     isValidChar     notify      toByte           toRadians       |
+-    >>    doubleValue    intValue     isValidInt      notifyAll   toChar           toShort         ?
+->   >>>   ensuring       isInfinite   isValidLong     round       toDegrees        toString
+/    ^     eq             isInfinity   isValidShort    self        toDouble         unary_+
+

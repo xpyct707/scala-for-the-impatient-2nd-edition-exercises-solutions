@@ -1,0 +1,15 @@
+scala> "kiz4yosr4"
+res0: String = kiz4yosr4
+
+scala> res0.take(3)
+res1: String = kiz
+
+scala> res0.drop(3)
+res2: String = 4yosr4
+
+scala> res0.takeRight(3)
+res3: String = sr4
+
+scala> res0.dropRight(3)
+res4: String = kiz4yo
+

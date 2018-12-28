@@ -1,0 +1,4 @@
+scala> "crazy" * 3
+res0: String = crazycrazycrazy
+
+https://www.scala-lang.org/api/current/scala/collection/immutable/StringLike.html#*(n:Int):String

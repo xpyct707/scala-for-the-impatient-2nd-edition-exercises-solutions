@@ -1,0 +1,8 @@
+scala> import util.Random
+import util.Random
+
+scala> import BigInt.probablePrime
+import BigInt.probablePrime
+
+scala> probablePrime(100, Random).toString(36)
+res0: String = 2wb05kiz4yosr4q0crs7

@@ -10,4 +10,6 @@ object ex7 extends App {
       println(f"${property._1}${" " * (keyLong - property._1.length)}| ${property._2}")
     }
   }
+
+  printAllSystemProperties()
 }

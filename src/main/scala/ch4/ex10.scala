@@ -1,3 +1,5 @@
+package ch4
+
 object ex10 extends App {
   def printChessBoard(): Unit = {
     val letters = "ABCDEFGH"
@@ -5,4 +7,6 @@ object ex10 extends App {
       println(letters.zip(i.toString * 8))
     }
   }
+
+  printChessBoard()
 }

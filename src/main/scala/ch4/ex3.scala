@@ -10,4 +10,5 @@ object ex3 extends App {
     }
     wordsMap
   }
+  println(getWordFrequencyMap(sourceFilePath))
 }

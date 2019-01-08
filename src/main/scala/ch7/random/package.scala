@@ -22,18 +22,4 @@ package object random {
     previousInt = ((previousInt * a + b) % c).asInstanceOf[Int]
     previousInt
   }
-
-  def main(args: Array[String]): Unit = {
-    for (i <- 0 until 10) {
-      setSeed(i)
-      for (i <- 0 until 5)
-        println(nextInt())
-    }
-
-    for (i <- 0 until 10) {
-      setSeed(i)
-      for (j <- 0 until 5)
-        println(nextDouble())
-    }
-  }
 }

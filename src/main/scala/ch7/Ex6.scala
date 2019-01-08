@@ -1,24 +1,24 @@
 package ch7
 
-import java.util.{HashMap => JavaHashMap}
-import scala.collection.mutable.{HashMap => ScalaHashMap}
-import scala.collection.JavaConverters._
+import java.util.{LinkedHashMap => JavaLinkedHashMap}
+import scala.collection.mutable.{LinkedHashMap => ScalaLinkedHashMap}
 
-object Ex6 {
-  def convertToScalaMap(javaMap: JavaHashMap[String, Int]): ScalaHashMap[String, Int] = {
-    val result = new ScalaHashMap[String, Int]
-    for (e <- javaMap.asScala) {
-      result += e
+object Ex6 extends App {
+  def convertToScalaMap(javaMap: JavaLinkedHashMap[String, Int])= {
+    val result = new ScalaLinkedHashMap[String, Int]
+    val iterator = javaMap.entrySet().iterator
+    while (iterator.hasNext) {
+      val entry = iterator.next
+      result += (entry.getKey -> entry.getValue)
     }
     result
   }
 
-  def main(args: Array[String]): Unit = {
-    val javaMap = new JavaHashMap[String, Int]
-    javaMap.put("q", 1)
-    javaMap.put("w", 2)
-    javaMap.put("e", 3)
+  val javaMap = new JavaLinkedHashMap[String, Int]
+  javaMap.put("q", 1)
+  javaMap.put("w", 2)
+  javaMap.put("e", 3)
 
-    println(convertToScalaMap(javaMap))
-  }
+  val scalaMap = convertToScalaMap(javaMap)
+  assert(scalaMap sameElements ScalaLinkedHashMap(("q", 1), ("w", 2), ("e", 3)))
 }

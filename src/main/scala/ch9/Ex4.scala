@@ -1,22 +1,28 @@
 package ch9
 
-import java.io.{FileWriter, PrintWriter}
+import java.io.{File, FileWriter, PrintWriter}
+import java.nio.file.{Files, Paths}
 
 import scala.io.Source
 
 object Ex4 extends App {
-  def appendStatisticsToFile(fileName: String) {
-    val in = Source.fromFile(fileName)
-    val numbers = in.mkString.split("\\s+").map(_.toDouble)
+  def appendStatisticsToFile(inputFile: File, targetFile: File) {
+    val in = Source.fromFile(inputFile)
+    val lines = in.getLines.toArray
+    val numbers = lines.mkString.split("\\s+").map(_.toDouble)
     in.close()
 
-    val out = new PrintWriter(new FileWriter(fileName, true))
-    out.append(f"sum: ${numbers.sum}\n")
-    out.append(f"average: ${numbers.sum / numbers.length}\n")
-    out.append(f"min: ${numbers.min}\n")
-    out.append(f"max: ${numbers.max}\n")
+    val out = new PrintWriter(targetFile)
+    Files.createDirectories(targetFile.getParentFile.toPath)
+    lines.foreach(out.println)
+    out.println(f"sum: ${numbers.sum}")
+    out.println(f"average: ${numbers.sum / numbers.length}")
+    out.println(f"min: ${numbers.min}")
+    out.println(f"max: ${numbers.max}")
     out.close()
   }
 
-  appendStatisticsToFile("ex4.txt")
+  val source = Paths.get("src", "main", "resources", "ch9", "ex4.txt").toFile
+  val target = Paths.get("target", "out", "ch9", "ex4.txt").toFile
+  appendStatisticsToFile(source, target)
 }

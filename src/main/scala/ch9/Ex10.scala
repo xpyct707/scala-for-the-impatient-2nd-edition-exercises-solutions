@@ -1,6 +1,7 @@
 package ch9
 
 import java.io.{FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream}
+import java.nio.file.Paths
 
 object Ex10 extends App {
   val a = new Person("a")
@@ -12,20 +13,19 @@ object Ex10 extends App {
   c.friends += b
 
   val all = Array(a, b, c)
+  val printAllFriends = (people: Array[Person]) =>
+    people.foreach(p => println(s"${p.name} friends: " + p.friends.mkString(", ")))
+  printAllFriends(all)
 
-  println("all:")
-  all.foreach(p => println(p.friends))
-
-  val fileName = "all.obj"
-  val out = new ObjectOutputStream(new FileOutputStream(fileName))
+  val outFile = Paths.get("target", "out", "ch9", "ex10.obj").toFile
+  val out = new ObjectOutputStream(new FileOutputStream(outFile))
   out.writeObject(all)
   out.close()
 
-  val in = new ObjectInputStream(new FileInputStream(fileName))
+  val in = new ObjectInputStream(new FileInputStream(outFile))
   val allAgain = in.readObject.asInstanceOf[Array[Person]]
   in.close()
-  println("all again:")
-  allAgain.foreach(p => println(p.friends))
+  printAllFriends(allAgain)
 }
 
 import java.io.{FileOutputStream, ObjectOutputStream}
